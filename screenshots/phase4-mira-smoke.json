@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/u/mira.lane",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 221,
+      "bodyTextHash": "074a694389933d235c6f625e9f82c995b741ab22b12a0271f0a7a13557cf1f5d",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in Mira Lane @m",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase4-mira-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 211,
+      "bodyTextHash": "8c4ff723e892704b8f846ec1bed2bd721d2b82b2e6a940372ab6b335b72c2b0c",
+      "bodyTextPrefix": "VYBE Sign in Mira Lane @mira.lane Follow Night walks, analog cam",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase4-mira-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase4-mira-smoke.json"
+}

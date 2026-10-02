@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 1158,
+      "bodyTextHash": "aaba1c59d0e32c3847b29d2588e790f66cadc113a6126aaa5494dd5db00c23ed",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in CIRCLE From ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 718,
+      "bodyTextHash": "d6889e55944028a7be9672f0f746584375530dcead7771d8858902e33605ff6c",
+      "bodyTextPrefix": "VYBE Sign in Kenji Ito @kenji.ito · 13 days ago Following Golden",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

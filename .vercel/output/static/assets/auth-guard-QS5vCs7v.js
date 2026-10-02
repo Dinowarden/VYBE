@@ -1,0 +1,1 @@
+import{a as e}from"./button-Ciej5lcD.js";import{t}from"./jsx-runtime-0vZSBttN.js";import{f as n,m as r}from"./index-CqmQ2uum.js";var i=t();function a({children:t}){let{user:a,isPending:o}=e();return o?(0,i.jsx)(r,{}):a?(0,i.jsx)(i.Fragment,{children:t}):(0,i.jsx)(n,{})}export{a as t};

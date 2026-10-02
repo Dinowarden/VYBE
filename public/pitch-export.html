@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>VYBE — Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: 1920px 1080px; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: #0c0b10; color: #f4f1ec; font-family: Figtree, sans-serif; }
+    .slide {
+      width: 1920px;
+      height: 1080px;
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      overflow: hidden;
+      padding: 72px 96px 88px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        radial-gradient(ellipse at top, rgba(255,90,61,0.08), transparent 55%),
+        #0c0b10;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .chrome {
+      position: absolute; top: 40px; left: 96px; right: 96px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: Syne, sans-serif; letter-spacing: 0.18em; font-size: 14px; font-weight: 600; }
+    .kicker { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #9a96a3; }
+    .foot {
+      position: absolute; bottom: 36px; left: 96px; right: 96px;
+      display: flex; justify-content: space-between; color: #6f6b78; font-size: 12px; letter-spacing: 0.18em;
+    }
+    h1, h2, h3 { font-family: Syne, sans-serif; font-weight: 600; letter-spacing: -0.03em; }
+    .eyebrow { color: #ff5a3d; letter-spacing: 0.28em; text-transform: uppercase; font-size: 13px; font-weight: 500; }
+    .muted { color: #9a96a3; }
+    .grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center; }
+    .grid-2-eq { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    img.art { width: 100%; height: 520px; object-fit: cover; border-radius: 28px; outline: 1px solid rgba(255,255,255,0.08); outline-offset: -1px; }
+    .card { background: #16151c; border-radius: 24px; padding: 28px; box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
+    .dot { width: 6px; height: 6px; border-radius: 99px; background: #ff5a3d; margin-top: 10px; flex-shrink: 0; }
+    .row { display: flex; gap: 14px; color: #9a96a3; font-size: 20px; line-height: 1.45; margin-bottom: 16px; }
+    .coral { color: #ff5a3d; }
+    .center { text-align: center; }
+  </style>
+</head>
+<body>
+  <section class="slide">
+    <div class="chrome"><div class="brand"><svg width="28" height="28" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#1e1d26"/><path d="M6.5 22.5c5.5-13 13.5-13 19 0" fill="none" stroke="#FF5A3D" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="10.5" r="2.3" fill="#F4F1EC"/></svg>VYBE</div><div class="kicker">Confidential  ·  2026</div></div>
+    <div class="grid-2">
+      <div>
+        <p class="eyebrow">The social OS</p>
+        <h1 style="font-size: 108px; line-height: 0.9; margin-top: 20px;">Your people.<br>Your pulse.</h1>
+        <p class="muted" style="font-size: 22px; margin-top: 28px; max-width: 560px; line-height: 1.45;">VYBE is one identity across two rooms: Circle for the people you chose, Pulse for the world in motion.</p>
+      </div>
+      <img class="art" src="/pitch/rings.jpg" alt="" />
+    </div>
+    <div class="foot"><span>01  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">01  /  Context</div></div>
+    <div class="grid-2-eq">
+      <div>
+        <h2 style="font-size: 64px; line-height: 0.95;">Friends live in one app. Discovery lives in another.</h2>
+        <p class="muted" style="font-size: 22px; margin-top: 28px; line-height: 1.5;">Instagram kept the people you know. TikTok took the camera. Every creator, and every teenager, now runs two lives — and two brands — to do both.</p>
+      </div>
+      <img class="art" src="/pitch/worlds.jpg" alt="" />
+    </div>
+    <div class="foot"><span>02  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">02  /  Problem</div></div>
+    <h2 style="font-size: 58px; line-height: 0.95; max-width: 1400px;">We trained a generation to split themselves.</h2>
+    <div class="grid-3" style="margin-top: 56px;">
+      <div class="card"><h3 style="font-size: 26px;">The close graph stalled</h3><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">Follow graphs optimized for ads, not friends. Chronological intimacy is an afterthought on platforms built for reach.</p></div>
+      <div class="card"><h3 style="font-size: 26px;">The open graph is a stranger</h3><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">Short video found a new camera language — and left your actual Circle behind. Discovery without belonging.</p></div>
+      <div class="card"><h3 style="font-size: 26px;">Identity is the tax</h3><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">People maintain two handles, two aesthetics, two audiences. The software made them do it.</p></div>
+    </div>
+    <div class="foot"><span>03  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">03  /  Insight</div></div>
+    <p class="eyebrow">The bet</p>
+    <h2 style="font-size: 72px; line-height: 0.95; margin-top: 16px; max-width: 1500px;">Closeness and discovery are different verbs.</h2>
+    <p class="muted" style="font-size: 26px; margin-top: 40px; max-width: 900px; line-height: 1.5;">One ranking function cannot serve a best friend and a billion strangers. The fix is not a better algorithm. It is two rooms, one name.</p>
+    <div class="foot"><span>04  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">04  /  Product</div></div>
+    <h2 style="font-size: 64px; line-height: 0.95;">One identity. Two rooms.</h2>
+    <div class="grid-2-eq" style="margin-top: 48px;">
+      <div class="card" style="padding: 40px;">
+        <p class="eyebrow">Circle</p>
+        <h3 style="font-size: 40px; margin-top: 12px;">From people you chose.</h3>
+        <p class="muted" style="margin-top: 24px; font-size: 20px; line-height: 1.6;">Follow graph, chronological<br>Text, image, video<br>Quiet on purpose</p>
+      </div>
+      <div class="card" style="padding: 40px;">
+        <p class="eyebrow">Pulse</p>
+        <h3 style="font-size: 40px; margin-top: 12px;">From the world, in motion.</h3>
+        <p class="muted" style="margin-top: 24px; font-size: 20px; line-height: 1.6;">Public short video<br>Ranked by taste, not followers<br>The same creator, a second room</p>
+      </div>
+    </div>
+    <div class="foot"><span>05  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">05  /  Circle</div></div>
+    <div class="grid-2">
+      <div>
+        <p class="eyebrow">Circle</p>
+        <h2 style="font-size: 64px; line-height: 0.95; margin-top: 12px;">The feed that used to exist.</h2>
+        <p class="muted" style="font-size: 22px; margin-top: 28px; line-height: 1.5; max-width: 700px;">People you follow, in the order they posted. Captions that can be a paragraph. Images that do not autoplay. A home, not a slot machine.</p>
+      </div>
+      <div>
+        <div class="row"><span class="dot"></span><span>Follow, unfollow, block — a real social graph</span></div>
+        <div class="row"><span class="dot"></span><span>Posts: text, image, or video</span></div>
+        <div class="row"><span class="dot"></span><span>Like, comment, share, save</span></div>
+        <div class="row"><span class="dot"></span><span>Hashtags without turning friends into SEO</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>06  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">06  /  Pulse</div></div>
+    <div class="grid-2">
+      <div>
+        <p class="eyebrow">Pulse</p>
+        <h2 style="font-size: 60px; line-height: 0.95; margin-top: 12px;">A public square that does not invade the house.</h2>
+        <p class="muted" style="font-size: 22px; margin-top: 28px; line-height: 1.5; max-width: 700px;">Full-screen vertical video. Swipe. Sound. Reach that is not gated by how many friends you collected in high school.</p>
+      </div>
+      <div>
+        <div class="row"><span class="dot"></span><span>Same username, separate ranking</span></div>
+        <div class="row"><span class="dot"></span><span>For You, following, and tags</span></div>
+        <div class="row"><span class="dot"></span><span>Create once — publish to Circle, Pulse, or both</span></div>
+        <div class="row"><span class="dot"></span><span>Friends never compete with strangers in the same scroll</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>07  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">07  /  System</div></div>
+    <div class="grid-2-eq">
+      <div>
+        <h2 style="font-size: 56px; line-height: 0.95;">A dual graph, not a feature flag.</h2>
+        <p class="muted" style="margin-top: 32px; font-size: 20px; line-height: 1.7;">
+          <span style="color:#f4f1ec">01  Identity</span> — one user, one username, hashed credentials, sessions.<br>
+          <span style="color:#f4f1ec">02  Graph</span> — follow edges that power Circle, never Pulse ranking.<br>
+          <span style="color:#f4f1ec">03  Content</span> — posts and media with a room, not a generic blob.<br>
+          <span style="color:#f4f1ec">04  Signals</span> — likes, comments, saves, shares, notifications.<br>
+          <span style="color:#f4f1ec">05  Safety</span> — report, review, suspend. Trust is the product.
+        </p>
+      </div>
+      <img class="art" src="/pitch/graph.jpg" alt="" />
+    </div>
+    <div class="foot"><span>08  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">08  /  Why VYBE</div></div>
+    <h2 style="font-size: 56px; line-height: 0.95; max-width: 1500px;">Not another For You page. A social OS with two rooms.</h2>
+    <div class="grid-3" style="margin-top: 56px;">
+      <div class="card"><h3 style="font-size: 26px;">One name</h3><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">Creators stop running twin brands. Friends always know where to find you.</p></div>
+      <div class="card"><h3 style="font-size: 26px;">Two rankings</h3><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">Circle stays chronological. Pulse can be ambitious. Neither poisons the other.</p></div>
+      <div class="card"><h3 style="font-size: 26px;">Taste, not scale</h3><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">A small Circle is a feature. Pulse is where a clip can still leave the room.</p></div>
+    </div>
+    <div class="foot"><span>09  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">09  /  Market</div></div>
+    <h2 style="font-size: 56px; line-height: 0.95;">The camera already split. The software has not.</h2>
+    <div class="grid-3" style="margin-top: 48px;">
+      <div class="card"><p class="coral" style="font-family: Syne, sans-serif; font-size: 40px;">2 lives</p><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">Every young user already keeps a friends app and a discovery app.</p></div>
+      <div class="card"><p class="coral" style="font-family: Syne, sans-serif; font-size: 40px;">1 camera</p><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">Short video is the default way a generation records the world.</p></div>
+      <div class="card"><p class="coral" style="font-family: Syne, sans-serif; font-size: 40px;">0 homes</p><p class="muted" style="margin-top: 14px; font-size: 18px; line-height: 1.5;">No major product is natively both — so people duct-tape identity.</p></div>
+    </div>
+    <p class="muted" style="margin-top: 40px; max-width: 900px; font-size: 18px; line-height: 1.5;">Social remains the largest consumer-internet surface. The opening is not “beat TikTok at TikTok.” It is to own the seam between belonging and broadcast.</p>
+    <div class="foot"><span>10  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">10  /  Model</div></div>
+    <div class="grid-2-eq">
+      <div>
+        <h2 style="font-size: 56px; line-height: 0.95;">Monetize the square. Protect the house.</h2>
+        <p class="muted" style="font-size: 22px; margin-top: 28px; line-height: 1.5;">Pulse is public, so it can carry ads, branded missions, and later, creator commerce. Circle is a home. We do not rank friends for a brand manager.</p>
+      </div>
+      <div>
+        <div class="row"><span class="dot"></span><span>Pulse advertising — native, skippable, never in Circle</span></div>
+        <div class="row"><span class="dot"></span><span>Creator tools on Pulse reach, once the graph is real</span></div>
+        <div class="row"><span class="dot"></span><span>Never sell the follow graph. Trust is the lock-in.</span></div>
+      </div>
+    </div>
+    <div class="foot"><span>11  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">11  /  Build</div></div>
+    <h2 style="font-size: 52px; line-height: 0.95;">Thirteen phases. Shipping in public.</h2>
+    <div class="grid-3" style="margin-top: 40px;">
+      <div class="card"><p class="eyebrow">01–02</p><h3 style="margin-top: 10px; font-size: 22px;">Foundation + identity</h3><p class="muted" style="margin-top: 10px; font-size: 16px;">Design system, auth, unique usernames, sessions.</p></div>
+      <div class="card"><p class="eyebrow">03–05</p><h3 style="margin-top: 10px; font-size: 22px;">Graph + rooms</h3><p class="muted" style="margin-top: 10px; font-size: 16px;">Profiles, follow, Circle feed, Pulse player.</p></div>
+      <div class="card"><p class="eyebrow">06–08</p><h3 style="margin-top: 10px; font-size: 22px;">Publish + engage</h3><p class="muted" style="margin-top: 10px; font-size: 16px;">Text, image, video. Likes, comments, share, save.</p></div>
+      <div class="card"><p class="eyebrow">09–10</p><h3 style="margin-top: 10px; font-size: 22px;">Find + notify</h3><p class="muted" style="margin-top: 10px; font-size: 16px;">Hashtags, search, a real notifications inbox.</p></div>
+      <div class="card"><p class="eyebrow">11–12</p><h3 style="margin-top: 10px; font-size: 22px;">Trust</h3><p class="muted" style="margin-top: 10px; font-size: 16px;">Reporting, moderation, admin. The product is only as good as this.</p></div>
+      <div class="card"><p class="eyebrow">13</p><h3 style="margin-top: 10px; font-size: 22px;">Harden</h3><p class="muted" style="margin-top: 10px; font-size: 16px;">Performance, polish, the seams that make it feel inevitable.</p></div>
+    </div>
+    <div class="foot"><span>12  /  13</span><span>VYBE</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="chrome"><div class="brand">VYBE</div><div class="kicker">12  /  Close</div></div>
+    <div class="center">
+      <svg width="56" height="56" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#1e1d26"/><path d="M6.5 22.5c5.5-13 13.5-13 19 0" fill="none" stroke="#FF5A3D" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="10.5" r="2.3" fill="#F4F1EC"/></svg>
+      <h2 style="font-size: 92px; line-height: 0.9; margin-top: 28px;">Join the Circle.<br><span class="coral">Ride the Pulse.</span></h2>
+      <p class="muted" style="margin: 28px auto 0; max-width: 640px; font-size: 22px; line-height: 1.5;">VYBE — one identity, two rooms. Built for people who refuse to split themselves to be seen.</p>
+    </div>
+    <div class="foot"><span>13  /  13</span><span>VYBE</span></div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/profile",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 134,
+      "bodyTextHash": "c67ed6bf8a014414bf9a5a4da45bbd3a7a1fbbbca37ce4334416a8183ed21a59",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in Your VYBE Cl",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase3-profile-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 123,
+      "bodyTextHash": "078eb2ed293d016d9a4aabfef08167924640ef082fa7b7dc8b4bad9fc271dc04",
+      "bodyTextPrefix": "You Sign in Your VYBE Claim a username, keep a Circle, and publi",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase3-profile-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase3-profile-smoke.json"
+}

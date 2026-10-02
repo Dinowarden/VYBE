@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/pitch",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE — Pitch Deck",
+      "hasCanvas": false,
+      "bodyTextLen": 174,
+      "bodyTextHash": "7ccf852233b8c6174404d750075bb0e1e2cd1bf6e3a6536d7d97a85a3a7b158e",
+      "bodyTextPrefix": "VYBE CONFIDENTIAL · 2026 THE SOCIAL OS Your people. Your pulse. ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/vybe-pitch.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE — Pitch Deck",
+      "hasCanvas": false,
+      "bodyTextLen": 174,
+      "bodyTextHash": "7ccf852233b8c6174404d750075bb0e1e2cd1bf6e3a6536d7d97a85a3a7b158e",
+      "bodyTextPrefix": "VYBE CONFIDENTIAL · 2026 THE SOCIAL OS Your people. Your pulse. ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/vybe-pitch-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/vybe-pitch.json"
+}

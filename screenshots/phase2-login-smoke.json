@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/login",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 145,
+      "bodyTextHash": "134cf941d6a6f09d051ac1a1e133bea1b9cb96b0d9e90cc9f10ba8f9416a974e",
+      "bodyTextPrefix": "VYBE Welcome back Your Circle is waiting. Pulse never stopped. E",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase2-login-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 145,
+      "bodyTextHash": "134cf941d6a6f09d051ac1a1e133bea1b9cb96b0d9e90cc9f10ba8f9416a974e",
+      "bodyTextPrefix": "VYBE Welcome back Your Circle is waiting. Pulse never stopped. E",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase2-login-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase2-login-smoke.json"
+}

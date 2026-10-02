@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/u/kenji.ito/followers",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 130,
+      "bodyTextHash": "915957d7e750aef73a8e841f33bfb067739ba9d94d636fef1b77ae818806b4a6",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in ← @kenji.ito",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase4-followers-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 120,
+      "bodyTextHash": "97e2adee3634656a3d239b83f35d2f362585b6afe09d4d91e3dfcb03a718a4de",
+      "bodyTextPrefix": "VYBE Sign in ← @kenji.ito Followers No followers yet When people",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase4-followers-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase4-followers-smoke.json"
+}

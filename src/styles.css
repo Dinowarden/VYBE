@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #0c0b10;
+  --color-surface: #16151c;
+  --color-elevated: #1e1d26;
+  --color-fg: #f4f1ec;
+  --color-muted: #9a96a3;
+  --color-subtle: #6f6b78;
+  --color-brand: #ff5a3d;
+  --color-brand-fg: #0c0b10;
+  --color-border: #2a2833;
+  --color-ring: #ff5a3d;
+  --color-danger: #e5484d;
+  --color-success: #3dbf8c;
+
+  --color-background: #0c0b10;
+  --color-foreground: #f4f1ec;
+  --color-card: #16151c;
+  --color-card-foreground: #f4f1ec;
+  --color-primary: #ff5a3d;
+  --color-primary-foreground: #0c0b10;
+  --color-secondary: #1e1d26;
+  --color-secondary-foreground: #f4f1ec;
+  --color-muted-foreground: #9a96a3;
+  --color-accent: #1e1d26;
+  --color-accent-foreground: #f4f1ec;
+  --color-destructive: #e5484d;
+  --color-input: #2a2833;
+  --color-popover: #1e1d26;
+  --color-popover-foreground: #f4f1ec;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius: 0.75rem;
+
+  --shadow-border: 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-lift: 0 0 0 1px rgb(255 255 255 / 0.1), 0 18px 40px -24px rgb(0 0 0 / 0.55);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    color-scheme: dark;
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+  }
+  p { text-wrap: pretty; }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) { cursor: pointer; }
+  img, video {
+    outline: 1px solid rgb(255 255 255 / 0.08);
+    outline-offset: -1px;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@utility pb-nav {
+  padding-bottom: calc(5.25rem + env(safe-area-inset-bottom));
+}

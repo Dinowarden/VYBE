@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/u/nkechi671006",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 190,
+      "bodyTextHash": "183346811ad4a0750de343352630c6e900b3b4c5a644d8b95f3c31bd94f03a77",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in Nkechi Adeye",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase3-public-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 180,
+      "bodyTextHash": "39905b0db5115a3ca170b269539f70987ef64d8e8fde3ce21d81a8172db9f31a",
+      "bodyTextPrefix": "VYBE Sign in Nkechi Adeyemi @nkechi671006 Follow Lagos nights. S",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase3-public-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase3-public-smoke.json"
+}

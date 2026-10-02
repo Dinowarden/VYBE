@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/u/kenji.ito",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 244,
+      "bodyTextHash": "65c4288c20f023ef63f67a322d2b68fd86fd65a816773623a153d59de68e6d5c",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in Kenji Ito @k",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase3-kenji-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 234,
+      "bodyTextHash": "9b14545c9199de6d0062bcbf16adc96261621807ad0c7b82e18bd7722875d728",
+      "bodyTextPrefix": "VYBE Sign in Kenji Ito @kenji.ito Follow Frames, footwork, and F",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase3-kenji-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase3-kenji-smoke.json"
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/signup",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 359,
+      "bodyTextHash": "f6a471c34edfb4f8d6072fcea655c60d5f2b912c5699d983e15011c1838693a1",
+      "bodyTextPrefix": "VYBE Join the Circle One identity for friends and discovery. Nam",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase2-signup-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 359,
+      "bodyTextHash": "f6a471c34edfb4f8d6072fcea655c60d5f2b912c5699d983e15011c1838693a1",
+      "bodyTextPrefix": "VYBE Join the Circle One identity for friends and discovery. Nam",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase2-signup-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase2-signup-smoke.json"
+}

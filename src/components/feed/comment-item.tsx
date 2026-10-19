@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LikeButton } from "@/components/social/like-button";
+import { ReportButton } from "@/components/safety/report-button";
 import { relativeTime } from "@/lib/format";
 import type { FeedComment } from "@/lib/types";
 
@@ -32,8 +33,9 @@ export function CommentItem({ comment }: { comment: FeedComment }) {
           </time>
         </div>
         <p className="mt-1 text-sm leading-relaxed text-fg/90">{comment.body}</p>
+        <ReportButton targetType="comment" targetId={comment.id} ownerId={comment.author.id} variant="text" />
       </div>
-      <LikeButton liked={comment.liked} count={comment.likeCount} />
+      <LikeButton liked={comment.liked} count={comment.likeCount} targetType="comment" targetId={comment.id} />
     </article>
   );
 }

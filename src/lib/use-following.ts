@@ -8,9 +8,11 @@ export function useFollowing() {
   const [myUsername, setMyUsername] = useState<string | null>(null);
   const [graphLoaded, setGraphLoaded] = useState(false);
 
+  const userId = user?.id ?? null;
+
   useEffect(() => {
     if (isPending) return;
-    if (!user) {
+    if (!userId) {
       setFollowing(new Set());
       setMyUsername(null);
       setGraphLoaded(true);
@@ -31,7 +33,7 @@ export function useFollowing() {
     return () => {
       cancelled = true;
     };
-  }, [user, isPending]);
+  }, [userId, isPending]);
 
   const setFollows = useCallback((username: string, next: boolean) => {
     setFollowing((prev) => {

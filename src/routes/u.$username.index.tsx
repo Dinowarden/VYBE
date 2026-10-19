@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { UserRound } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PostCard } from "@/components/feed/post-card";
 import { VideoCard } from "@/components/feed/video-card";
 import { ProfileHero } from "@/components/profile/profile-hero";
@@ -8,8 +8,9 @@ import { EmptyState } from "@/components/states/empty-state";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { findUser, postsByUser } from "@/lib/demo-data";
 import { getProfileByUsername } from "@/lib/server/profile";
+import { listPostsByUsername } from "@/lib/server/posts";
 import { useFollowing } from "@/lib/use-following";
-import type { ProfileRow } from "@/lib/types";
+import type { FeedPost, ProfileRow } from "@/lib/types";
 
 export const Route = createFileRoute("/u/$username/")({ component: PublicProfile });
 
@@ -18,22 +19,37 @@ function PublicProfile() {
   const demo = findUser(username);
   const { myUsername, follows, setFollows } = useFollowing();
   const [live, setLive] = useState<ProfileRow | null | undefined>(undefined);
+  const [livePosts, setLivePosts] = useState<FeedPost[]>([]);
 
   useEffect(() => {
     let cancelled = false;
-    void getProfileByUsername({ data: username })
-      .then((row) => {
-        if (!cancelled) setLive(row);
+    void Promise.all([
+      getProfileByUsername({ data: username }),
+      listPostsByUsername({ data: username }),
+    ])
+      .then(([row, posts]) => {
+        if (cancelled) return;
+        setLive(row);
+        setLivePosts(posts);
       })
       .catch(() => {
-        if (!cancelled) setLive(null);
+        if (!cancelled) {
+          setLive(null);
+          setLivePosts([]);
+        }
       });
     return () => {
       cancelled = true;
     };
   }, [username]);
 
-  const posts = demo ? postsByUser(demo.id) : [];
+  const posts = useMemo(() => {
+    const demoList = demo ? postsByUser(demo.id) : [];
+    const seen = new Set(livePosts.map((post) => post.id));
+    return [...livePosts, ...demoList.filter((post) => !seen.has(post.id))].sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    );
+  }, [livePosts, demo]);
   const videos = posts.filter((post) => post.kind === "video");
   const rest = posts.filter((post) => post.kind !== "video");
 

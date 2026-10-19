@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
+import { PostCard } from "@/components/feed/post-card";
+import { VideoCard } from "@/components/feed/video-card";
 import { ProfileHero } from "@/components/profile/profile-hero";
 import { EmptyState } from "@/components/states/empty-state";
 import { PagePending } from "@/components/states/loading-spinner";
@@ -9,29 +11,39 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { UserButton } from "@/lib/auth/gates";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
 import { getMyProfile } from "@/lib/server/profile";
-import type { ProfileRow } from "@/lib/types";
+import { listPostsByUsername, listSaved } from "@/lib/server/posts";
+import type { FeedPost, ProfileRow } from "@/lib/types";
 
 export const Route = createFileRoute("/profile/")({ component: Profile });
 
 function Profile() {
   const { user, isPending } = useCurrentUserState();
   const [profile, setProfile] = useState<ProfileRow | null>(null);
+  const [posts, setPosts] = useState<FeedPost[]>([]);
+  const [savedPosts, setSavedPosts] = useState<FeedPost[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const userId = user?.id ?? null;
 
   useEffect(() => {
     if (isPending) return;
-    if (!user) {
+    if (!userId) {
       setLoaded(true);
       setProfile(null);
+      setPosts([]);
+      setSavedPosts([]);
       return;
     }
     let cancelled = false;
     void getMyProfile()
-      .then((row) => {
-        if (!cancelled) {
-          setProfile(row);
-          setLoaded(true);
-        }
+      .then(async (row) => {
+        if (cancelled) return;
+        setProfile(row);
+        const live = row ? await listPostsByUsername({ data: row.username }) : [];
+        const saved = row ? await listSaved({ data: {} }) : [];
+        if (cancelled) return;
+        setPosts(live);
+        setSavedPosts(saved);
+        setLoaded(true);
       })
       .catch(() => {
         if (!cancelled) setLoaded(true);
@@ -39,7 +51,7 @@ function Profile() {
     return () => {
       cancelled = true;
     };
-  }, [user, isPending]);
+  }, [userId, isPending]);
 
   if (isPending || !loaded) return <PagePending />;
 
@@ -64,6 +76,9 @@ function Profile() {
     );
   }
 
+  const videos = posts.filter((post) => post.kind === "video");
+  const rest = posts.filter((post) => post.kind !== "video");
+
   return (
     <main className="mx-auto w-full max-w-xl px-4 py-6">
       <ProfileHero profile={profile} isOwner />
@@ -85,19 +100,29 @@ function Profile() {
           <TabsTrigger value="videos" className="flex-1">Videos</TabsTrigger>
           <TabsTrigger value="saved" className="flex-1">Saved</TabsTrigger>
         </TabsList>
-        <TabsContent value="posts">
-          <EmptyState
-            icon={UserRound}
-            title="Nothing here yet"
-            description="Your text and image posts will live on this tab."
-            action={<Button asChild variant="secondary"><Link to="/create">Create a post</Link></Button>}
-          />
+        <TabsContent value="posts" className="mt-4 flex flex-col gap-4">
+          {rest.length ? rest.map((post) => <PostCard key={post.id} post={post} />) : (
+            <EmptyState
+              icon={UserRound}
+              title="Nothing here yet"
+              description="Your text and image posts will live on this tab."
+              action={<Button asChild variant="secondary"><Link to="/create">Create a post</Link></Button>}
+            />
+          )}
         </TabsContent>
         <TabsContent value="videos">
-          <EmptyState icon={UserRound} title="No clips yet" description="Short videos you publish will collect here." />
+          {videos.length ? (
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              {videos.map((post) => <VideoCard key={post.id} post={post} />)}
+            </div>
+          ) : (
+            <EmptyState icon={UserRound} title="No clips yet" description="Short videos you publish will collect here." />
+          )}
         </TabsContent>
-        <TabsContent value="saved">
-          <EmptyState icon={UserRound} title="Saved is empty" description="Bookmarks from Circle and Pulse will wait for you here." />
+        <TabsContent value="saved" className="mt-4 flex flex-col gap-4">
+          {savedPosts.length ? savedPosts.map((post) => <PostCard key={post.id} post={post} />) : (
+            <EmptyState icon={UserRound} title="Saved is empty" description="Bookmarks from Circle and Pulse will wait for you here." />
+          )}
         </TabsContent>
       </Tabs>
     </main>

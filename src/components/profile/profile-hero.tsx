@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { FollowButton } from "@/components/social/follow-button";
+import { ReportButton } from "@/components/safety/report-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { compactNumber } from "@/lib/format";
@@ -36,11 +37,14 @@ export function ProfileHero({
               <Link to="/profile/edit">Edit</Link>
             </Button>
           ) : (
-            <FollowButton
-              username={profile.username}
-              following={following}
-              onChange={onFollowChange}
-            />
+            <div className="mb-1 flex flex-col items-end gap-2">
+              <FollowButton
+                username={profile.username}
+                following={following}
+                onChange={onFollowChange}
+              />
+              <ReportButton targetType="user" targetId={profile.userId} ownerId={profile.userId} variant="text" />
+            </div>
           )}
         </div>
         {profile.bio ? (

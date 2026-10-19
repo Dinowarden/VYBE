@@ -168,6 +168,22 @@ var Compass = createLucideIcon("compass", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var Flag = createLucideIcon("flag", [["path", {
+	d: "M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z",
+	key: "i9b6wo"
+}], ["line", {
+	x1: "4",
+	x2: "4",
+	y1: "22",
+	y2: "15",
+	key: "1cm3nv"
+}]]);
+/**
+* @license lucide-react v0.510.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Heart = createLucideIcon("heart", [["path", {
 	d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",
 	key: "c3ymky"
@@ -464,4 +480,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ArrowLeft as C, Bell as S, Compass as _, Users as a, Camera as b, TriangleAlert as c, Plus as d, Play as f, Heart as g, House as h, Video as i, Share2 as l, Image as m, VolumeX as n, UserRound as o, MessageCircle as p, Volume2 as r, Type as s, X as t, Search as u, ChevronRight as v, Bookmark as x, ChevronLeft as y };
+export { Bell as C, Bookmark as S, Flag as _, Users as a, ChevronLeft as b, TriangleAlert as c, Plus as d, Play as f, Heart as g, House as h, Video as i, Share2 as l, Image as m, VolumeX as n, UserRound as o, MessageCircle as p, Volume2 as r, Type as s, X as t, Search as u, Compass as v, ArrowLeft as w, Camera as x, ChevronRight as y };

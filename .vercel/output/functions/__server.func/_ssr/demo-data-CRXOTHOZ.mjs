@@ -1,0 +1,201 @@
+//#region node_modules/.nitro/vite/services/ssr/assets/demo-data-CRXOTHOZ.js
+var demoUsers = [
+	{
+		id: "u_mira",
+		username: "mira.lane",
+		displayName: "Mira Lane",
+		bio: "Night walks, analog cameras, and the long way home.",
+		avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&h=256&q=80",
+		followerCount: 18420,
+		followingCount: 312,
+		likeCount: 221400
+	},
+	{
+		id: "u_jules",
+		username: "jules.okoro",
+		displayName: "Jules Okoro",
+		bio: "Kitchen experiments. Lagos to London. Always stirring.",
+		avatarUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=256&h=256&q=80",
+		followerCount: 9402,
+		followingCount: 201,
+		likeCount: 88410
+	},
+	{
+		id: "u_kenji",
+		username: "kenji.ito",
+		displayName: "Kenji Ito",
+		bio: "Frames, footwork, and Friday night lights.",
+		avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&h=256&q=80",
+		followerCount: 31200,
+		followingCount: 88,
+		likeCount: 510200
+	},
+	{
+		id: "u_amara",
+		username: "amara.wells",
+		displayName: "Amara Wells",
+		bio: "Building in public. Soft landing, sharp edges.",
+		avatarUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=256&h=256&q=80",
+		followerCount: 22110,
+		followingCount: 540,
+		likeCount: 140880
+	},
+	{
+		id: "u_nova",
+		username: "nova.park",
+		displayName: "Nova Park",
+		bio: "Sound design, skate parks, and whatever is in the fridge.",
+		avatarUrl: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=256&h=256&q=80",
+		followerCount: 12880,
+		followingCount: 419,
+		likeCount: 99020
+	}
+];
+var [mira, jules, kenji, amara, nova] = demoUsers;
+var demoPosts = [
+	{
+		id: "p_pulse_1",
+		author: kenji,
+		kind: "video",
+		caption: "Golden hour on the east river. No music, just the city breathing.",
+		hashtags: ["pulse", "citylight"],
+		createdAt: "2026-09-19T18:12:00.000Z",
+		likeCount: 8421,
+		commentCount: 312,
+		shareCount: 640,
+		saveCount: 1102,
+		viewCount: 128400,
+		media: [{
+			url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+			posterUrl: "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1080&q=80"
+		}],
+		liked: false,
+		saved: false,
+		followingAuthor: true
+	},
+	{
+		id: "p_circle_1",
+		author: amara,
+		kind: "text",
+		caption: "Shipped the thing I have been circling for six months. It is quieter than I imagined, and that feels right.",
+		hashtags: ["buildinpublic"],
+		createdAt: "2026-09-19T16:40:00.000Z",
+		likeCount: 428,
+		commentCount: 67,
+		shareCount: 41,
+		saveCount: 88,
+		viewCount: 3900,
+		media: [],
+		liked: true,
+		saved: false,
+		followingAuthor: true
+	},
+	{
+		id: "p_pulse_2",
+		author: nova,
+		kind: "video",
+		caption: "First drop of the week. Keep the volume up.",
+		hashtags: ["vybe", "soundcheck"],
+		createdAt: "2026-09-19T15:04:00.000Z",
+		likeCount: 15220,
+		commentCount: 890,
+		shareCount: 2104,
+		saveCount: 3400,
+		viewCount: 402110,
+		media: [{
+			url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+			posterUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1080&q=80"
+		}],
+		liked: false,
+		saved: true,
+		followingAuthor: false
+	},
+	{
+		id: "p_circle_2",
+		author: jules,
+		kind: "image",
+		caption: "Pepper soup, late service, the good kind of tired.",
+		hashtags: ["supper"],
+		createdAt: "2026-09-19T12:21:00.000Z",
+		likeCount: 2104,
+		commentCount: 156,
+		shareCount: 90,
+		saveCount: 340,
+		viewCount: 18880,
+		media: [{ url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80" }],
+		liked: false,
+		saved: false,
+		followingAuthor: true
+	},
+	{
+		id: "p_pulse_3",
+		author: mira,
+		kind: "video",
+		caption: "A walk I almost skipped. Glad I did not.",
+		hashtags: ["nightwalk"],
+		createdAt: "2026-09-18T22:10:00.000Z",
+		likeCount: 6640,
+		commentCount: 201,
+		shareCount: 330,
+		saveCount: 980,
+		viewCount: 77400,
+		media: [{
+			url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+			posterUrl: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1080&q=80"
+		}],
+		liked: false,
+		saved: false,
+		followingAuthor: true
+	},
+	{
+		id: "p_pulse_4",
+		author: amara,
+		kind: "video",
+		caption: "Studio close. Tomorrow we start again.",
+		hashtags: ["makers"],
+		createdAt: "2026-09-18T02:14:00.000Z",
+		likeCount: 4102,
+		commentCount: 122,
+		shareCount: 210,
+		saveCount: 560,
+		viewCount: 54020,
+		media: [{
+			url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+			posterUrl: "https://images.unsplash.com/photo-1520045899732-3973d06c8ee8?auto=format&fit=crop&w=1080&q=80"
+		}],
+		liked: true,
+		saved: false,
+		followingAuthor: true
+	}
+];
+var demoComments = [{
+	id: "c1",
+	postId: "p_circle_1",
+	author: mira,
+	body: "The quiet launch is underrated. Proud of you.",
+	createdAt: "2026-09-19T16:55:00.000Z",
+	likeCount: 24,
+	liked: false
+}, {
+	id: "c2",
+	postId: "p_circle_1",
+	author: jules,
+	body: "Sending this to everyone still waiting for permission.",
+	createdAt: "2026-09-19T17:08:00.000Z",
+	likeCount: 11,
+	liked: true
+}];
+demoPosts[1], demoPosts[1];
+var circleFeed = demoPosts.filter((post) => post.followingAuthor || post.kind !== "video");
+var pulseFeed = demoPosts.filter((post) => post.kind === "video");
+function findUser(username) {
+	return demoUsers.find((user) => user.username === username);
+}
+function findPost(id) {
+	return demoPosts.find((post) => post.id === id);
+}
+function postsByUser(userId) {
+	return demoPosts.filter((post) => post.author.id === userId);
+}
+//#endregion
+export { findPost as a, pulseFeed as c, demoUsers as i, demoComments as n, findUser as o, demoPosts as r, postsByUser as s, circleFeed as t };

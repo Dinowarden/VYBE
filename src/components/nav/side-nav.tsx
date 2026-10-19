@@ -4,6 +4,7 @@ import { AuthSlot } from "@/components/auth/auth-slot";
 import { VybeWordmark } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useUnreadSignals } from "@/lib/use-signals";
 
 const items = [
   { to: "/", label: "Circle", icon: Home, match: (p: string) => p === "/" },
@@ -15,6 +16,7 @@ const items = [
 
 export function SideNav() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const unread = useUnreadSignals();
   return (
     <aside className="sticky top-0 hidden h-dvh w-[15.5rem] shrink-0 flex-col border-r border-border px-4 py-5 md:flex">
       <VybeWordmark className="px-2" />
@@ -36,6 +38,9 @@ export function SideNav() {
             >
               <Icon className="size-5" strokeWidth={active ? 2.1 : 1.7} />
               {item.label}
+              {item.to === "/notifications" && unread > 0 ? (
+                <span className="ml-auto size-2 rounded-full bg-brand" aria-label={`${unread} unread`} />
+              ) : null}
             </Link>
           );
         })}

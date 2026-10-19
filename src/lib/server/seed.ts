@@ -1,11 +1,13 @@
-import { demoUsers } from "@/lib/demo-data";
+import { demoComments, demoPosts, demoUsers } from "@/lib/demo-data";
 import { getSql } from "@/lib/db";
 
-let seeded = false;
+let profilesSeeded = false;
+let postsSeeded = false;
+let tagsSeeded = false;
 
 /** Upsert the sample creators so follow edges can land on real profile rows. */
 export async function ensureDemoProfiles() {
-  if (seeded) return;
+  if (profilesSeeded) return;
   const sql = await getSql();
   for (const user of demoUsers) {
     try {
@@ -24,5 +26,89 @@ export async function ensureDemoProfiles() {
       /* username may already belong to a real account */
     }
   }
-  seeded = true;
+  profilesSeeded = true;
+}
+
+/** Sample posts and their starter comments, so saves and replies have a real row. */
+export async function ensureDemoPosts() {
+  await ensureDemoProfiles();
+  if (postsSeeded) {
+    await ensureDemoTags();
+    return;
+  }
+  const sql = await getSql();
+  for (const post of demoPosts) {
+    await sql`
+      insert into post (
+        id, author_id, kind, caption, like_count, comment_count, share_count, save_count, view_count, created_at
+      )
+      values (
+        ${post.id},
+        ${post.author.id},
+        ${post.kind},
+        ${post.caption},
+        ${post.likeCount},
+        ${post.commentCount},
+        ${post.shareCount},
+        ${post.saveCount},
+        ${post.viewCount},
+        ${post.createdAt}
+      )
+      on conflict (id) do nothing
+    `;
+    const media = post.media[0];
+    if (!media) continue;
+    const kind = post.kind === "video" ? "video" : "image";
+    await sql`
+      insert into media (id, post_id, kind, url, position)
+      values (${`${post.id}_media`}, ${post.id}, ${kind}, ${media.url}, ${0})
+      on conflict (id) do nothing
+    `;
+    if (media.posterUrl) {
+      await sql`
+        insert into media (id, post_id, kind, url, position)
+        values (${`${post.id}_poster`}, ${post.id}, ${"poster"}, ${media.posterUrl}, ${1})
+        on conflict (id) do nothing
+      `;
+    }
+  }
+  for (const comment of demoComments) {
+    await sql`
+      insert into comment (id, post_id, author_id, body, like_count, created_at)
+      values (
+        ${comment.id},
+        ${comment.postId},
+        ${comment.author.id},
+        ${comment.body},
+        ${comment.likeCount},
+        ${comment.createdAt}
+      )
+      on conflict (id) do nothing
+    `;
+  }
+  postsSeeded = true;
+  await ensureDemoTags();
+}
+
+async function ensureDemoTags() {
+  if (tagsSeeded) return;
+  const sql = await getSql();
+  for (const post of demoPosts) {
+    for (const tag of post.hashtags) {
+      const tagId = `h_${tag}`;
+      await sql`
+        insert into hashtag (id, tag, use_count)
+        values (${tagId}, ${tag}, 1)
+        on conflict (tag) do nothing
+      `;
+      const row = await sql<{ id: string }>`select id from hashtag where tag = ${tag} limit 1`;
+      if (!row[0]) continue;
+      await sql`
+        insert into content_hashtag (post_id, hashtag_id)
+        values (${post.id}, ${row[0].id})
+        on conflict do nothing
+      `;
+    }
+  }
+  tagsSeeded = true;
 }

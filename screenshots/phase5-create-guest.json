@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/create",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 56,
+      "bodyTextHash": "fbf79db33eda686390faee8ab1d9c82a5f031c21f1faef1e859260b92ece1b1c",
+      "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Opening VYBE",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase5-create-guest.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "VYBE",
+      "hasCanvas": false,
+      "bodyTextLen": 48,
+      "bodyTextHash": "e73a2b2ae43ed6d89aa32a4e28c5102220554e565ebb16ccd2914ea0fb146421",
+      "bodyTextPrefix": "Create Opening VYBE Home Discover Alerts Profile",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/phase5-create-guest-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/phase5-create-guest.json"
+}

@@ -9,6 +9,8 @@ import { FollowButton } from "@/components/social/follow-button";
 import { circleFeed, demoPosts, pulseFeed } from "@/lib/demo-data";
 import { compactNumber } from "@/lib/format";
 import { listSuggestedPeople, type Person } from "@/lib/server/follow";
+import { listCircleFeed } from "@/lib/server/posts";
+import type { FeedPost } from "@/lib/types";
 import { useFollowing } from "@/lib/use-following";
 
 export const Route = createFileRoute("/")({ component: Home });
@@ -17,8 +19,12 @@ function Home() {
   const { user, following, follows, setFollows, myUsername, isPending } = useFollowing();
   const [mounted, setMounted] = useState(false);
   const [suggested, setSuggested] = useState<Person[]>([]);
+  const [livePosts, setLivePosts] = useState<FeedPost[] | null>(null);
   const rising = pulseFeed.slice(0, 3);
-  const waiting = !mounted || isPending;
+  const waiting = !mounted || isPending || Boolean(user && livePosts === null);
+
+  const userId = user?.id ?? null;
+  const followKey = [...following].sort().join(",");
 
   useEffect(() => {
     setMounted(true);
@@ -37,14 +43,39 @@ function Home() {
     return () => {
       cancelled = true;
     };
-  }, [user, following, isPending]);
+  }, [userId, followKey, isPending]);
+
+  useEffect(() => {
+    if (isPending) return;
+    if (!userId) {
+      setLivePosts(null);
+      return;
+    }
+    let cancelled = false;
+    void listCircleFeed({ data: {} })
+      .then((rows) => {
+        if (!cancelled) setLivePosts(rows);
+      })
+      .catch((err) => {
+        console.error("listCircleFeed", err);
+        if (!cancelled) setLivePosts([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [userId, followKey, isPending]);
 
   const posts = useMemo(() => {
     if (!user) return circleFeed;
-    return demoPosts
+    const demo = demoPosts
       .filter((post) => following.has(post.author.username))
       .map((post) => ({ ...post, followingAuthor: true }));
-  }, [user, following]);
+    const live = livePosts ?? [];
+    const seen = new Set(live.map((post) => post.id));
+    return [...live, ...demo.filter((post) => !seen.has(post.id))].sort(
+      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    );
+  }, [user, following, livePosts]);
 
   return (
     <main className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-6 lg:grid-cols-[minmax(0,36rem)_16rem] lg:justify-center">
@@ -58,7 +89,7 @@ function Home() {
             <div className="h-52 animate-pulse rounded-[1.75rem] bg-elevated" />
             <div className="h-52 animate-pulse rounded-[1.75rem] bg-elevated" />
           </div>
-        ) : user && posts.length === 0 ? (
+        ) : user && posts.length === 0 && livePosts !== null ? (
           <EmptyState
             icon={Users}
             title="Your Circle is quiet"

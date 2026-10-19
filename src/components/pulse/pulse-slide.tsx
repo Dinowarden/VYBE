@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Bookmark, MessageCircle, Share2, Volume2, VolumeX } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { toast } from "sonner";
+import { MessageCircle, Volume2, VolumeX } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { FollowButton } from "@/components/social/follow-button";
 import { LikeButton } from "@/components/social/like-button";
+import { SaveButton } from "@/components/social/save-button";
+import { ReportButton } from "@/components/safety/report-button";
+import { ShareButton } from "@/components/social/share-button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { compactNumber } from "@/lib/format";
 import type { FeedPost } from "@/lib/types";
-import { cn } from "@/lib/utils";
 
 export function PulseSlide({
   post,
@@ -21,7 +22,6 @@ export function PulseSlide({
   onMutedChange: (muted: boolean) => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [saved, setSaved] = useState(post.saved);
   const media = post.media[0];
   const initials = post.author.displayName
     .split(" ")
@@ -35,20 +35,6 @@ export function PulseSlide({
     if (active) void el.play().catch(() => undefined);
     else el.pause();
   }, [active]);
-
-  async function share() {
-    const url = `${window.location.origin}/post/${post.id}`;
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: "VYBE", text: post.caption, url });
-        return;
-      }
-    } catch {
-      /* cancelled */
-    }
-    await navigator.clipboard.writeText(url);
-    toast.success("Link copied");
-  }
 
   return (
     <section className="relative h-full w-full snap-start bg-bg">
@@ -82,24 +68,14 @@ export function PulseSlide({
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
         </Link>
-        <LikeButton liked={post.liked} count={post.likeCount} variant="rail" />
+        <LikeButton liked={post.liked} count={post.likeCount} targetType="post" targetId={post.id} variant="rail" />
         <Link to="/post/$postId" params={{ postId: post.id }} className="flex flex-col items-center gap-1 text-sm">
           <MessageCircle className="size-7" strokeWidth={1.6} />
           <span className="tabular-nums">{compactNumber(post.commentCount)}</span>
         </Link>
-        <button type="button" onClick={() => void share()} className="flex flex-col items-center gap-1 text-sm" aria-label="Share">
-          <Share2 className="size-7" strokeWidth={1.6} />
-          <span className="tabular-nums">{compactNumber(post.shareCount)}</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => setSaved((v) => !v)}
-          className="flex flex-col items-center gap-1 text-sm"
-          aria-pressed={saved}
-          aria-label={saved ? "Unsave" : "Save"}
-        >
-          <Bookmark className={cn("size-7", saved && "fill-brand text-brand")} strokeWidth={1.6} />
-        </button>
+        <ShareButton postId={post.id} caption={post.caption} count={post.shareCount} variant="rail" />
+        <SaveButton postId={post.id} saved={post.saved} variant="rail" />
+        <ReportButton targetType="post" targetId={post.id} ownerId={post.author.id} variant="rail" />
       </div>
 
       <div className="absolute inset-x-0 bottom-0 z-10 p-4 pb-32 md:pb-8">

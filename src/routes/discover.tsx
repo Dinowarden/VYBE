@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { PulseSlide } from "@/components/pulse/pulse-slide";
 import { pulseFeed } from "@/lib/demo-data";
+import { listPulseFeed } from "@/lib/server/posts";
+import type { FeedPost } from "@/lib/types";
 import { useFollowing } from "@/lib/use-following";
 
 export const Route = createFileRoute("/discover")({ component: Discover });
@@ -10,12 +12,34 @@ function Discover() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [muted, setMuted] = useState(true);
+  const [live, setLive] = useState<FeedPost[]>([]);
   const { follows } = useFollowing();
 
-  const posts = useMemo(
-    () => pulseFeed.map((post) => ({ ...post, followingAuthor: follows(post.author.username) })),
-    [follows],
-  );
+  useEffect(() => {
+    let cancelled = false;
+    void listPulseFeed({ data: {} })
+      .then((rows) => {
+        if (!cancelled) setLive(rows);
+      })
+      .catch(() => {
+        if (!cancelled) setLive([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const posts = useMemo(() => {
+    const seen = new Set(live.map((post) => post.id));
+    const demo = pulseFeed
+      .filter((post) => !seen.has(post.id))
+      .map((post) => ({ ...post, followingAuthor: follows(post.author.username) }));
+    const fresh = live.map((post) => ({
+      ...post,
+      followingAuthor: follows(post.author.username) || post.followingAuthor,
+    }));
+    return [...fresh, ...demo];
+  }, [live, follows]);
 
   useEffect(() => {
     const root = scrollerRef.current;
@@ -34,7 +58,7 @@ function Discover() {
     );
     slides.forEach((slide) => io.observe(slide));
     return () => io.disconnect();
-  }, []);
+  }, [posts.length]);
 
   return (
     <main className="relative h-[100dvh] bg-bg">

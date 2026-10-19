@@ -1,7 +1,7 @@
 import { o as __toESM } from "../_runtime.mjs";
 import { f as require_jsx_runtime, p as require_react } from "../_libs/@radix-ui/react-avatar+[...].mjs";
 import { t as cn } from "./utils-C_uf36nf.mjs";
-import { v as ChevronRight, y as ChevronLeft } from "../_libs/lucide-react.mjs";
+import { b as ChevronLeft, y as ChevronRight } from "../_libs/lucide-react.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/pitch-BFgRgzxU.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();

@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Bell, Compass, Home, Plus, UserRound } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useUnreadSignals } from "@/lib/use-signals";
 
 const items = [
   { to: "/", label: "Home", icon: Home, match: (p: string) => p === "/", featured: false },
@@ -12,6 +13,7 @@ const items = [
 
 export function BottomNav({ inverted }: { inverted?: boolean }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const unread = useUnreadSignals();
   return (
     <nav
       aria-label="Primary"
@@ -42,7 +44,12 @@ export function BottomNav({ inverted }: { inverted?: boolean }) {
                   </span>
                 ) : (
                   <>
-                    <Icon className="size-6" strokeWidth={active ? 2.2 : 1.7} />
+                    <span className="relative">
+                      <Icon className="size-6" strokeWidth={active ? 2.2 : 1.7} />
+                      {item.to === "/notifications" && unread > 0 ? (
+                        <span className="absolute -top-0.5 -right-1 size-2 rounded-full bg-brand" />
+                      ) : null}
+                    </span>
                     <span>{item.label}</span>
                   </>
                 )}

@@ -7,8 +7,8 @@
       "status": 200,
       "title": "VYBE",
       "hasCanvas": false,
-      "bodyTextLen": 1158,
-      "bodyTextHash": "aaba1c59d0e32c3847b29d2588e790f66cadc113a6126aaa5494dd5db00c23ed",
+      "bodyTextLen": 996,
+      "bodyTextHash": "bc8315e4719260bff0b1ba7cf2384b863d60559121cca7f4042985caa64a13b9",
       "bodyTextPrefix": "VYBE Circle Pulse Search Signals You Create Sign in CIRCLE From ",
       "horizontalOverflow": false,
       "consoleErrors": [],
@@ -21,12 +21,14 @@
       "status": 200,
       "title": "VYBE",
       "hasCanvas": false,
-      "bodyTextLen": 718,
-      "bodyTextHash": "d6889e55944028a7be9672f0f746584375530dcead7771d8858902e33605ff6c",
-      "bodyTextPrefix": "VYBE Sign in Kenji Ito @kenji.ito · 13 days ago Following Golden",
+      "bodyTextLen": 41,
+      "bodyTextHash": "2706336f5cc8742bd3010bebe9dac25957e5b414d44290d40add60331829929c",
+      "bodyTextPrefix": "VYBE Sign in Home Discover Alerts Profile",
       "horizontalOverflow": false,
       "consoleErrors": [],
-      "pageErrors": [],
+      "pageErrors": [
+        "Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:\n\n- A server/client branch `if (typeof window !== 'undefined')`.\n- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.\n- Date formatting in a user's locale which doesn't match the server.\n- External changing data without sending a snapshot of it along with the HTML.\n- Invalid HTML tag nesting.\n\nIt can also happen if the client has a browser extension installed which messes with the HTML before React loaded.\n\nhttps://react.dev/link/hydration-mismatch\n\n  ...\n    <RootDocument>\n      <html lang=\"en\" className=\"dark antia...\" suppressHydrationWarning={true}>\n        <head>\n        <body className=\"bg-bg text-fg\">\n          <PreviewHostBridge>\n          <AuthProvider>\n            <AppShell>\n              <ProfileGate>\n                <div className=\"min-h-dvh ...\">\n                  <SideNav>\n                    <aside className=\"sticky top...\">\n                      <VybeWordmark>\n                      <nav>\n                      <div className=\"px-1\">\n                        <AuthSlot>\n                          <Button asChild={true} size=\"md\" variant=\"outline\">\n                            <Slot.Slot className={\"inline-f...\"} ref={null}>\n+                             <a\n+                               className={\"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-f...\"}\n+                               ref={{current:null}}\n+                               onClick={function handleClick}\n+                               onBlur={function handleLeave}\n+                               onFocus={function}\n+                               onMouseEnter={function}\n+                               onMouseLeave={function handleLeave}\n+                               onTouchStart={function handleTouchStart}\n+                               href=\"/login\"\n+                               target={undefined}\n+                             >\n-                             <div className=\"h-11 w-24 animate-pulse rounded-full bg-elevated\">\n                  ...\n            ...\n          ...\n"
+      ],
       "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
     }
   },
